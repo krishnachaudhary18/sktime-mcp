@@ -683,7 +683,7 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
                 arguments.get("remove_duplicates", True),
             )
         elif name == "auto_format_on_load":
-            result = auto_format_on_load_tool(arguments["enabled"])
+            result = auto_format_on_load_tool(arguments.get("enabled", True))
         elif name == "fit_predict_async":
             result = fit_predict_async_tool(
                 arguments["estimator_handle"],
